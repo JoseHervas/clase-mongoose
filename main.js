@@ -10,6 +10,16 @@ server.use(bodyParser.json());
 
 server.post("/nuevoAutor", mainController.registrarAutor);
 
+server.put("/actualizarAutor", mainController.actualizarAutor);
+
+server.get("/autor/:_id", mainController.leerAutorPorId);
+
+server.get("/autores", mainController.leerTodosLosAutores);
+
+server.delete("/eliminarAutor/:_id", mainController.eliminarAutorPorId)
+
+server.post("/registrarReceta", mainController.registrarReceta)
+
 const PORT = process.env.PORT;
 
 server.listen(PORT, () => {
