@@ -18,7 +18,9 @@ server.get("/autores", mainController.leerTodosLosAutores);
 
 server.delete("/eliminarAutor/:_id", mainController.eliminarAutorPorId)
 
-server.post("/registrarReceta", mainController.registrarReceta)
+server.post("/registrarReceta", mainController.registrarReceta);
+
+server.get("/leerRecetaPorId/:_id", mainController.leerRecetaPorId)
 
 const PORT = process.env.PORT;
 

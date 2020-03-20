@@ -106,3 +106,20 @@ exports.registrarReceta = async (req, res) => {
         res.send({"error": "No se ha podido registrar la receta"})
     }
 }
+
+//7.- GET (single receta)
+exports.leerRecetaPorId = async (req, res) => {
+    const _id = req.params._id;
+    try {
+        const receta = await recetas.find({
+            "_id": _id
+        })
+        const author = await autores.find({
+            "_id": receta[0].author_id
+        })
+        res.send({"receta": receta, "author": author})
+    } catch (error) {
+        console.log(error);
+        res.send({"error": "receta no encontrada!"})
+    }
+}
